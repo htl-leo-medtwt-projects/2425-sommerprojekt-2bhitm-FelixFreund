@@ -24,6 +24,7 @@ body{
     color: blue;
     background-color: #ff77ff;
     margin: 0%;
+  
 }
 .albums{
     width: 100%;
@@ -87,29 +88,64 @@ body{
         transform: skewX(5deg);
     }
 }
-.slideshow-container {
-    position: relative;
-    max-width: 600px;
-    overflow: hidden;
-}
-.slides {
+#slideShow{
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 400%;
-}
-.slide {
+    justify-content: space-between;
+    align-items:center;
     width: 100%;
-    flex-shrink: 0;
+    height: 100vh;
+   
 }
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+.slideBoxes{
+    padding: 0%;
+
 }
-.prev { left: 10px; }
-.next { right: 10px; }
+#img2{
+    width: 40vh;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+#img3{
+    width: 65vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.76);
+-webkit-box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.76);
+-moz-box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.76);
+
+}
+#img4{
+    width: 40vh;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+#left{
+    transform:rotate(180deg);
+    width: 100%;
+    transition: width 1s linear;
+
+}
+#left:hover{
+    width: 101% ;
+}
+#right{
+    width: 100%;
+    transition: width 1s linear;
+
+}
+#right:hover{
+    width: 100% ;
+}
+#navigation{
+   display: grid;
+   grid-template-columns: auto auto;
+   justify-content: center;
+   margin-left: auto;
+   margin-right: auto;
+   position: absolute;
+   top: 125%;
+   column-gap: 81rem;
+   
+}
+
+

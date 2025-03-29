@@ -20,16 +20,19 @@
 </div>
  <img src="./img/kanye-west-2020-6b-2560x1440.jpg" alt="Ye" id="main">
 
- <div class="slideshow-container">
-    <img class="slide active" src="./img/Album1.webp">
-    <img class="slide" src="./img/Album2.jpeg">
-    <img class="slide" src="./img/album3.jpg">
-    <img class="slide" src="./img/album4.jpg">
-    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+ <div id="slideShow">
+  <div class="slideBoxes"><div id="img2"><img id="img2" src="./img/Album2.jpeg" alt=""></div></div>
+  <div class="slideBoxes"> <div id="img3"><img id="img3" src="./img/album3.jpg" alt=""></div></div>
+  <div class="slideBoxes"><div id="img4"><img id="img4" src="./img/album4.jpg" alt=""></div></div>
 </div>
+
+
   
   </div>
+  <div id="navigation">
+    <div><img id="left" onclick="nextPictureRight()" src="./img/arrow.png" alt=""></div>
+    <div><img  id="right" onclick=" nextPictureLeft()" src="./img/arrow.png" alt=""></div>
+    </div>
     
 </body>
 </html>
