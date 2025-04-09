@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graduation Album</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script src="./js-files/graduation.js" defer></script>
 </head>
-<body>
-    
+<body id="körper">
+    <button onclick="window.location.href='../index.html'" class="back-button">⬅ Zurück zur Startseite</button>
+  <div class="container">
+    <div class="toggle">
+      <label>
+        Dark Mode
+        <input type="checkbox" id="darkToggle" />
+      </label>
+    </div>
+
+    <div id="albumInfo" class="album-info"></div>
+    <div id="trackList" class="track_graduation-grid"></div>
+    <div id="trackDetails" class="track-details hidden"></div>
+    <div class="text-center">
+      <button id="moreBtn">Mehr erfahren</button>
+    </div>
+  </div>
+
+  
+
+
 </body>
 </html>

@@ -153,5 +153,245 @@ body{
    column-gap: 81rem;
    
 }
+/*Graduation*/
 
+#körper {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    transition: all 0.3s, color 0.3s;
+  }
+  
+  #körper.dark {
+    background: #111;
+    color: #fff;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .album-selection {
+    text-align: center;
+  }
+  
+  .album-selection button {
+    margin: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background: #444;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .album-selection button:hover {
+    background: #666;
+  }
+  
+  .album-info img {
+    width: 250px;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .track-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .track {
+    background: #f0f0f0;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  #körper.dark .track {
+    background: #222;
+  }
+  
+  .track:hover {
+    transform: scale(1.03);
+  }
+  
+  .track-details {
+    margin-top: 2rem;
+    background: #eee;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  #körper.dark .track-details {
+    background: #333;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .toggle {
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+  
+  .back-button {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    background: #6b6b6b;
+  }
+  
+  #körper.dark .back-button {
+    background: #ddd;
+    color: #111;
+  }
+  
+  #körper.dark .back-button:hover {
+    background: #bbb;
+  }
+/*MBDTF*/
 
+/* Basis-Stile */
+body.mbdtf-theme {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Dark Mode / Toggle */
+  .toggle-container {
+    text-align: right;
+    margin-bottom: 2rem;
+  }
+  
+  .toggle-label {
+    font-size: 1rem;
+    color: #e5e5e5;
+  }
+  
+  .toggle-container input[type="checkbox"] {
+    margin-left: 0.5rem;
+  }
+  
+  /* Album Header */
+  .album-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .album-title {
+    font-size: 2.5rem;
+    color: #d4af37; /* Gold */
+    margin-bottom: 1rem;
+  }
+  
+  .album-artist {
+    font-size: 1.2rem;
+    color: #e5e5e5;
+    margin-bottom: 1rem;
+  }
+  
+  .album-cover {
+    width: 60%;
+    max-width: 15rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
+  }
+  
+  .release-date, .album-genre {
+    color: #ccc;
+    font-size: 1rem;
+  }
+  
+  /* Tracklist */
+  .track-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .track-item {
+    background-color: #8b0000; /* Dark Red */
+    padding: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .track-item:hover {
+    transform: scale(1.05);
+    background-color: #d4af37; /* Gold */
+  }
+  
+  /* Track Details */
+  .track-details {
+    background-color: #333;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .track-details.hidden {
+    display: none;
+  }
+  
+  .track-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .track-lyrics {
+    font-size: 1rem;
+    white-space: pre-wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  .audio-player {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .back-btn {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #d4af37; /* Gold */
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #b38b2a;
+  }
+  

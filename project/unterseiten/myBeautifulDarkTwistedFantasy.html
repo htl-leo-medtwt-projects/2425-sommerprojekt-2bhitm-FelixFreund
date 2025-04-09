@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Beautiful Dark Twisted Fantasy</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script src="./js-files/mbdtf.js" defer></script>
 </head>
-<body>
+<body class="mbdtf-theme">
+  <div class="page-container">
     
+
+    <div class="album-header">
+      <button class="back-btn" onclick="window.location.href='../index.html'">⬅ Zurück zur Startseite</button>
+      <h1 class="album-title">My Beautiful Dark Twisted Fantasy</h1>
+      <h2 class="album-artist">by Kanye West</h2>
+      <img src="../img/Album1.webp" alt="MBDTF Album Cover" class="album-cover"/>
+      <p class="release-date">Released: November 22, 2010</p>
+      <p class="album-genre">Genre: Hip Hop</p>
+    </div>
+
+    <div id="tracklist" class="track-list">
+      <div class="track-item" onclick="showTrackDetails('Power')">1. Power</div>
+      <div class="track-item" onclick="showTrackDetails('Runaway')">2. Runaway</div>
+      <div class="track-item" onclick="showTrackDetails('Monster')">3. Monster</div>
+      <div class="track-item" onclick="showTrackDetails('All of the Lights')">4. All of the Lights</div>
+      <div class="track-item" onclick="showTrackDetails('Devil in a New Dress')">5. Devil in a New Dress</div>
+      <div class="track-item" onclick="showTrackDetails('Blame Game')">6. Blame Game</div>
+    </div>
+
+    <div id="track-details" class="track-details hidden">
+      <h3 class="track-title">Track Title</h3>
+      <p class="track-lyrics">Lyrics will be here...</p>
+      <audio controls class="audio-player">
+        <source src="https://www.example.com/audio/power.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      <button class="back-btn" onclick="document.getElementById('track-details').classList.add('hidden')">Zurück</button>
+    </div>
+  </div>
+
+ 
 </body>
 </html>
