@@ -199,7 +199,8 @@ body{
   
   .track-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
     gap: 1rem;
     margin-top: 2rem;
   }
@@ -220,15 +221,18 @@ body{
     transform: scale(1.03);
   }
   
-  .track-details {
+  #trackDetails {
     margin-top: 2rem;
-    background: #eee;
+    background: white;
+    color: blue;
     padding: 1rem;
     border-radius: 1rem;
+    width: 97%;
   }
   
-  #körper.dark .track-details {
+  #körper.dark #trackDetails {
     background: #333;
+    color: white;
   }
   
   .hidden {
@@ -243,7 +247,7 @@ body{
   .back-button {
     margin: 1rem 0;
     padding: 0.5rem 1rem;
-    background: #4a4a4a;
+    background: #bc0cd7;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -251,7 +255,7 @@ body{
   }
   
   .back-button:hover {
-    background: #6b6b6b;
+    background: #bc0cd7;
   }
   
   #körper.dark .back-button {
@@ -327,7 +331,7 @@ body.mbdtf-theme {
   /* Tracklist */
   .track-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2.5rem;
   }

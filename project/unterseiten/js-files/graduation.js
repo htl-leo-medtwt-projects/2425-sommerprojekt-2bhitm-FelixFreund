@@ -3,7 +3,7 @@ const albumData = {
   artist: "Kanye West",
   releaseDate: "September 11, 2007",
   genre: "Hip Hop",
-  cover: "https://upload.wikimedia.org/wikipedia/en/7/70/Kanyewestgraduation.jpg",
+  cover: "../img/Album2.jpeg",
   tracks: [
     { title: "Good Morning", preview: "", lyrics: "Wake up, Mr. West..." },
     { title: "Champion", preview: "", lyrics: "Did you realize that you were a champion in their eyes?" },
@@ -49,7 +49,7 @@ function showTrackDetails(track) {
     <h3>${track.title}</h3>
     ${track.preview ? `<audio controls src="${track.preview}" class="w-full"></audio>` : ""}
     <p>${track.lyrics}</p>
-    <button onclick="trackDetails.classList.add('hidden')">Schließen</button>
+    <button class="back-button" onclick="trackDetails.classList.add('hidden')">Schließen</button>
   `;
 }
 
@@ -58,8 +58,8 @@ document.getElementById('darkToggle').addEventListener('change', (e) => {
   document.body.classList.toggle('dark', e.target.checked);
 });
 
-document.getElementById('moreBtn').addEventListener('click', () => {
-  alert('Mehr Infos folgen bald...');
-});
+function hideTrackDetails() {
+  trackDetails.classList.add('hidden');
+}
 
 renderAlbum();
