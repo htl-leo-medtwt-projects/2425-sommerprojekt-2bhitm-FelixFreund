@@ -1,3 +1,5 @@
+
+
 function updateClothing(selectId, imageId) {
   const select = document.getElementById(selectId);  // das <select> Element holen
   const image = document.getElementById(imageId);    // das passende <img> für die Kleidung holen
@@ -15,3 +17,5 @@ document.getElementById('select-shoes')
 
 document.getElementById('select-accessory')
   .addEventListener('change', () => updateClothing('select-accessory', 'accessory'));
+
+  
