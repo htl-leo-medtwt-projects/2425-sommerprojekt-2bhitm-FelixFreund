@@ -178,24 +178,43 @@ label {
 
 
 /*Gewand:*/
-
-#shirt{
+.tshirt-style{
   width: 95%;
   margin-top: 40%;
   margin-left: 4%;
   z-index: 2;
-}
 
-#pants{
+}
+.hemd-style{
+  width: 79%;
+  margin-top: 32%;
+  margin-left: 14%;
+  z-index: 2;
+}
+.jeans-style{
   width: 57%;
   margin-top: 120%;
-  margin-left: 27%;
+  margin-left: 26%;
   z-index: 1;
 }
-#shoes{
-  width: 85%;
+.trousers-style{
+  width: 87%;
+  margin-top: 102%;
+  margin-left: 11%;
+  z-index: 1;
+}
+
+.sneaker-style{
+  width: 86%;
   margin-top: 182%;
   margin-left: 12%;
+ 
+}
+.loafer-style{
+  width: 86%;
+  margin-top: 134%;
+  margin-left: 12%;
+ 
 }
 #accessory{
   width: 80%;
