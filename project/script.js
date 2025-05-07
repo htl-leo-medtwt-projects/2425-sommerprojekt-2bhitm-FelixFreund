@@ -19,3 +19,4 @@ document.getElementById('select-accessory')
   .addEventListener('change', () => updateClothing('select-accessory', 'accessory'));
 
   
+  
