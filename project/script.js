@@ -105,6 +105,31 @@ document.addEventListener("DOMContentLoaded", () => {
   updateBaseFigure();
 }); 
 
+//ACCESSORY SPEZIALHANDLING
+
+selects.accessory.addEventListener("change", (e) => {
+   
+  const accessoryEl = document.getElementById("accessory");
+  const value = e.target.value;
+
+  currentDrip.accessory = value;
+  accessoryEl.src = value;
+
+
+  accessoryEl.classList.remove("krawatte-style", "fischerhut-style");
+
+  
+
+  if (value.toLowerCase().includes("fischerhut")) {
+    accessoryEl.classList.add("fischerhut-style");
+  } else if (value.toLowerCase().includes("krawatte")) {
+    accessoryEl.classList.add("krawatte-style");
+  }
+
+  updateBaseFigure();
+}); 
+
+
   // Restliche Kleidungsstücke (Standardhandling)
   ["pants", "shoes", "accessory"].forEach((item) => {
     selects[item].addEventListener("change", (e) => {
@@ -122,10 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Themen für Bewertung
 const themes = [
-  { name: "Strandoutfit", tags: ["t-shirt", "shorts", "sneaker", "cap"] },
+  { name: "Strandoutfit", tags: ["t-shirt", "shorts", "flip-flop", "cap"] },
   { name: "Winter-Style", tags: ["jacke", "jeans", "boots", "mütze"] },
-  { name: "Gala-Look", tags: ["hemd", "hose", "schuhe", "krawatte"] },
-  { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "hut", "sonnenbrille"] }
+  { name: "Gala-Look", tags: ["hemd", "trousers", "loafer", "krawatte"] },
+  { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "fischerhut", "sneaker"] }
 ];
 
 let selectedTheme = null;
@@ -134,24 +159,37 @@ let selectedTheme = null;
 function calculateDripPoints() {
   let basePoints = 0;
   let themeMatch = 0;
-
+  
+console.log("Aktuelles Outfit:", currentDrip);
   Object.values(currentDrip).forEach(path => {
     if (path) {
-      basePoints += 20;
+      basePoints += 10;
+      console.log(basePoints)
       selectedTheme?.tags.forEach(tag => {
         if (path.toLowerCase().includes(tag)) {
+          console.log(basePoints)
           themeMatch += 1;
-        }
+        }  
       });
     }
   });
+  console.log(basePoints)
+  console.log(themeMatch)
 
   return basePoints + (themeMatch * 10);
 }
 
 // Bewertung anzeigen
 function showDripScore() {
-  const score = calculateDripPoints();
-  const output = document.getElementById("score-result");
-  output.innerText = `🔎 Drip-Level: ${score} Punkte für das Thema "${selectedTheme?.name}"`;
+  const score = calculateDripPoints(); // <- deine Bewertungsfunktion
+  document.getElementById("points").textContent = `${score} Punkte`;
+  document.querySelector(".points-display").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+  document.getElementById("main-content").classList.add("blur");
+}
+
+function disappear(){
+  document.querySelector(".points-display").style.display = "none";
+   document.getElementById("overlay").style.display = "none";
+  document.getElementById("main-content").classList.remove("blur");
 }

@@ -186,9 +186,9 @@ label {
 
 }
 .hemd-style{
-  width: 79%;
-  margin-top: 32%;
-  margin-left: 14%;
+  width: 80%;
+  margin-top: 30%;
+  margin-left: 13%;
   z-index: 2;
 }
 .jeans-style{
@@ -216,14 +216,19 @@ label {
   margin-left: 12%;
  
 }
-#accessory{
+.fischerhut-style{
   width: 80%;
   margin-top: -65%;
   margin-left: 12%;
-  
-  
-  
 }
+.krawatte-style{
+  width: 80%;
+  margin-top: 54.5%;
+  margin-left: 15.5%;
+  z-index: 10;
+
+}
+
 
 /*Gewand Ende*/
 
@@ -376,6 +381,75 @@ label {
   border: 3px #111 solid;
 
 }
+
+.points-display {
+  display: none; /* Erst sichtbar, wenn JS das ändert */
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  width: 20rem;
+  height: 30%;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  border: 2px solid #111;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Julin', sans-serif;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 40%;
+  right: 40%;
+}
+
+.points-display h2 {
+  margin-top: 10%;
+  font-size: 1.3rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+#points {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: #111;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.close-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #111;
+  transition: color 0.2s ease;
+  
+}
+
+.close-btn:hover {
+  color: #f4a300;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.5);
+  z-index: 9;
+}
+
+.blur {
+  filter: blur(3px);
+  transition: filter 0.3s ease;
+}
+
 
 
 
