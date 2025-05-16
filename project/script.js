@@ -1,10 +1,16 @@
 // Aktuelles Outfit speichern
-const currentDrip = {
+let currentDrip = {
   shirt: "",
   pants: "",
   shoes: "",
   accessory: ""
 };
+
+function loadRandomTheme() {
+  selectedTheme = themes[Math.floor(Math.random() * themes.length)];
+  document.getElementById("theme").textContent = selectedTheme.name;
+  console.log(selectedTheme.name)
+}
 
 // Outfit-Update Funktion
 function updateClothing() {
@@ -189,7 +195,47 @@ function showDripScore() {
 }
 
 function disappear(){
+  document.getElementById("overlay").style.display = "none";
   document.querySelector(".points-display").style.display = "none";
-   document.getElementById("overlay").style.display = "none";
   document.getElementById("main-content").classList.remove("blur");
 }
+
+function playAgain(){
+  
+  document.getElementById("select-shirt").value = "";
+  document.getElementById("select-pants").value = "";
+  document.getElementById("select-shoes").value = "";
+  document.getElementById("select-accessory").value = "";
+
+  
+  document.getElementById("shirt").src = "";
+  document.getElementById("pants").src = "";
+  document.getElementById("shoes").src = "";
+  document.getElementById("accessory").src = "";
+
+  
+  document.querySelector(".points-display").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+
+  
+  document.getElementById("main-content").classList.remove("blur");
+
+  
+  if (typeof currentDrip !== "undefined") {
+    currentDrip = {
+      shirt: "",
+      pants: "",
+      shoes: "",
+      accessory: ""
+    };
+  }
+  
+   if (typeof loadRandomTheme === "function") {
+    loadRandomTheme();
+  }
+  
+  
+
+}
+ 
+

@@ -322,6 +322,41 @@ label {
   border-radius: 6px;
 }
 
+#infoBox{
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 60%;
+ margin-left: auto;
+ margin-right: auto;
+  padding: 0.5rem;
+  background: linear-gradient(135deg, #fff, #f5f5f5);
+  border: 2px solid #111;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+#infoBox h2{
+   transition: all 0.5s ease-in-out;
+}
+#infoBox strong{
+   transition: all 0.5s ease-in-out;
+}
+
+
+#infoBox:hover h2{
+  color: #f4a300;
+}
+
+#infoBox strong:hover{
+ font-size: 1.05rem;
+ 
+}
+
 #back-button{
   background-color: #111;
   padding: 1rem;
@@ -359,7 +394,7 @@ label {
   background-color: white;
   border: 3px #111 solid;
 }
-#submit-button{
+.submit-button{
   background-color: #111;
   padding: 1rem;
   text-align: center;
@@ -367,14 +402,14 @@ label {
   height: 10%;
   color: white;
   border-radius: 8px;
-  margin-top: auto;
-  margin-bottom: auto;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.8s linear;
+  font-family: Arial, sans-serif;
 }
-#submit-button:hover{
+.submit-button:hover{
   color: #111;
   transform: scale(1.2);
   background-color: white;
@@ -383,6 +418,7 @@ label {
 }
 
 .points-display {
+  z-index: 1000;
   display: none; /* Erst sichtbar, wenn JS das ändert */
   margin: 2rem auto;
   padding: 1rem 2rem;
@@ -398,6 +434,8 @@ label {
   justify-content: center;
   align-items: center;
   left: 40%;
+  top: 25%;
+  bottom: 25%;
   right: 40%;
 }
 
@@ -446,10 +484,41 @@ label {
 }
 
 .blur {
-  filter: blur(3px);
+  backdrop-filter: blur(10px);
   transition: filter 0.3s ease;
 }
 
-
-
-
+#playAgain-button{
+  background-color: #111;
+  padding: 1rem;
+  text-align: center;
+  width: 10rem;
+  height: 10%;
+  color: white;
+  border-radius: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s linear;
+  font-family: Arial, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
+#playAgain-button:hover{
+  color: #111;
+  transform: scale(1.2);
+  background-color: white;
+  border: 3px #111 solid;
+}
+#boxy{
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}

@@ -8,6 +8,7 @@
     <title>Game</title>
 </head>
 <body>
+  
   <div id="main-content">
     <div class="header">
         <a class="return" href="./index.html">Zurück</a>
@@ -66,15 +67,17 @@
         </div>
       
       
-    
-      
-      <div id="submit-button" onclick="showDripScore()">Bewerten</div>
+    <div id="boxy">
+      <div class="submit-button" onclick="showDripScore()">Bewerten</div>
+      <div class="submit-button" onclick="showDripScore()">Preset</div>
+    </div>
      
       <div id="overlay" style="display: none;">
       <div class="points-display" style="display: none;" >
-        <div class="close-btn" onclick="disappear()">✖</div>
+      <div class="close-btn" onclick="disappear()">✖</div>
       <h2>Dein Drip-Score:</h2>
       <p id="points"></p>
+      <div id="playAgain-button" onclick="playAgain()">Again</div>
      </div>
      </div>
 
