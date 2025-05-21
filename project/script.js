@@ -6,10 +6,21 @@ let currentDrip = {
   accessory: ""
 };
 
+let lastTheme = null
+
 function loadRandomTheme() {
+  while(selectedTheme == lastTheme){
   selectedTheme = themes[Math.floor(Math.random() * themes.length)];
-  document.getElementById("theme").textContent = selectedTheme.name;
+  document.getElementById("theme").innerHTML = selectedTheme.name;
+  }
+  lastTheme = selectedTheme;
   console.log(selectedTheme.name)
+  console.log(selectedTheme.background)
+  
+  document.getElementById("main-content").style.backgroundImage = `url(${selectedTheme.background})`;
+  document.getElementById("main-content").style.backgroundSize = "cover";
+  document.getElementById("main-content").style.backgroundPosition = "center";
+  document.getElementById("main-content").style.backgroundRepeat = "no-repeat";
 }
 
 // Outfit-Update Funktion
@@ -41,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
     shoes: document.getElementById("select-shoes"),
     accessory: document.getElementById("select-accessory")
   };
+
+  loadRandomTheme()
 
   // SHIRT SPEZIALHANDLING
   selects.shirt.addEventListener("change", (e) => {
@@ -144,19 +157,16 @@ selects.accessory.addEventListener("change", (e) => {
     });
   });
 
-  // Thema anzeigen, wenn vorhanden (auf game.html)
-  if (document.getElementById("theme")) {
-    selectedTheme = themes[Math.floor(Math.random() * themes.length)];
-    document.getElementById("theme").innerText = selectedTheme.name;
-  }
+  
+  
 });
 
 // Themen für Bewertung
 const themes = [
-  { name: "Strandoutfit", tags: ["t-shirt", "shorts", "flip-flop", "cap"] },
-  { name: "Winter-Style", tags: ["jacke", "jeans", "boots", "mütze"] },
-  { name: "Gala-Look", tags: ["hemd", "trousers", "loafer", "krawatte"] },
-  { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "fischerhut", "sneaker"] }
+  { name: "Strandoutfit", tags: ["t-shirt", "shorts", "flip-flop", "cap"],background: "./img/strand.jpg" },
+  { name: "Winter-Style", tags: ["jacke", "jeans", "boots", "mütze"],background: "./img/schneeLandschaft.jpg"},
+  { name: "Gala-Look", tags: ["hemd", "trousers", "loafer", "krawatte"],background: "./img/disco.jpg"},
+  { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "fischerhut", "sneaker"],background: "./img/festival.jpg" }
 ];
 
 let selectedTheme = null;
@@ -169,7 +179,7 @@ function calculateDripPoints() {
 console.log("Aktuelles Outfit:", currentDrip);
   Object.values(currentDrip).forEach(path => {
     if (path) {
-      basePoints += 10;
+      basePoints += 0;
       console.log(basePoints)
       selectedTheme?.tags.forEach(tag => {
         if (path.toLowerCase().includes(tag)) {
@@ -234,8 +244,8 @@ function playAgain(){
     loadRandomTheme();
   }
   
-  
-
 }
+
+
  
 

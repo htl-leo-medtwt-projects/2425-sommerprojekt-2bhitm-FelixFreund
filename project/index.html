@@ -7,13 +7,37 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      const nav = document.querySelector(".nav-links");
+      const userInfo = document.createElement("span");
+      userInfo.style.marginLeft = "1rem";
+      userInfo.style.color = "#f4a300";
+      userInfo.textContent = `👤 Eingeloggt als: ${loggedInUser}`;
+
+      const logoutBtn = document.createElement("a");
+      logoutBtn.href = "#";
+      logoutBtn.className = "auth-button";
+      logoutBtn.textContent = "Logout";
+      logoutBtn.onclick = () => {
+        localStorage.removeItem("loggedInUser");
+        location.reload();
+      };
+
+      nav.appendChild(userInfo);
+      nav.appendChild(logoutBtn);
+    }
+  });
+</script>
 <body>
   <div class="header">
     <img src="./img/bear.png" id="logo" alt="ye">
     <h2 style="font-size: 2rem;">Drip - Generator</h2>
     <nav class="nav-links">
       <a href="#info-section" >Info</a>
-      <a href="#">Preset</a>
+      <a href="./unterseiten/login.html" >Registrieren/Login</a>
     </nav>
   </div>
 

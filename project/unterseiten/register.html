@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../style.css" />
+  <script src="./auth.js" defer></script>
+  <title>Registrieren</title>
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Registrieren</h2>
+    <form onsubmit="registerUser(event)">
+      <label for="reg-user">Username:</label>
+      <input type="text" id="reg-User" required />
+
+      <label for="reg-password">Passwort:</label>
+      <input type="password" id="reg-password" required />
+
+      <button type="submit">Registrieren</button>
+    </form>
+    <div style="display: grid; grid-template-columns: auto; margin-top: 2%; justify-content: center; align-items: center;">
+       <a href="../index.html" class="auth-button">Zurück</a>
+    </div>
+   
+  </div>i
+</body>
+</html>

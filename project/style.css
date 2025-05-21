@@ -34,7 +34,7 @@
   width: 100%;
   top: 0;
   font-family: Julin;
- 
+  
 }
 
 #logo {
@@ -91,8 +91,9 @@ body {
 .stickman-wrapper {
   position: relative;
   width: 15rem;
-  z-index: -1;
+  z-index: 1;
   overflow: visible;
+ 
  
 }
 #wrapper {
@@ -106,7 +107,7 @@ body {
 
 .base-figure {
   width: 100%;
-  background-color: #f2f2f2;
+  background-color: transparent;
 }
 
 .clothing-item {
@@ -521,4 +522,83 @@ label {
   gap: 2rem;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+/* login*/
+
+.auth-button {
+  background-color: #111;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  margin-left: 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #f4a300;
+  color: #111;
+}
+
+.auth-container {
+  max-width: 350px;
+  margin: 5rem auto;
+  padding: 2rem;
+  border: 2px solid #111;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-container input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #999;
+}
+
+.auth-container button {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.auth-container button:hover {
+  background-color: #f4a300;
+  color: #111;
+}
+#bait{
+  text-decoration: none;
+  color: #111;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: all 0.3s ease;
+}
+#bait:hover{
+  color: #f4a300;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+#handling{
+  display: grid;
+  grid-template-columns: auto auto;
+
+
+  margin-top: 5%;
 }

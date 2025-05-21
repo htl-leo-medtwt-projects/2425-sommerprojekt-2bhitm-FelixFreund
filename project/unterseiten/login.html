@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../style.css" />
+  <script src="./auth.js" defer></script>
+  <title>Login</title>
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Login</h2>
+    <form onsubmit="loginUser(event)">
+      <label for="login-user">Username:</label>
+      <input type="text" id="login-userName" required />
+
+      <label for="login-password">Passwort:</label>
+      <input type="password" id="login-password" required />
+
+      <button type="submit">Einloggen</button>
+    </form>
+    <div id="handling">
+    <a href="./register.html" id="bait">Noch kein Konto?</a>
+    <a href="../index.html" class="auth-button">Zurück</a>
+    </div>
+  </div>
+</body>
+</html>
