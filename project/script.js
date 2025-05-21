@@ -29,7 +29,21 @@ function updateClothing() {
   document.getElementById("pants").src = currentDrip.pants;
   document.getElementById("shoes").src = currentDrip.shoes;
   document.getElementById("accessory").src = currentDrip.accessory;
+console.log(currentDrip)
+  updateBaseFigure();
+}
 
+/*function updateClothings(part, path) {
+  console.log(currentDrip)
+  document.getElementById(part).src = path;
+  currentDrip[part] = path;
+}*/
+
+function applyClothing(part, src, className) {
+  const element = document.getElementById(part);
+  element.src = src || "";
+  element.className = className || "clothing-item"; // fallback
+  currentDrip[part] = src;
   updateBaseFigure();
 }
 
@@ -53,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     accessory: document.getElementById("select-accessory")
   };
 
-  loadRandomTheme()
+  
 
   // SHIRT SPEZIALHANDLING
   selects.shirt.addEventListener("change", (e) => {
@@ -245,6 +259,75 @@ function playAgain(){
   }
   
 }
+
+// Check ob Spieler eingeloggt ist und zeige Preset-Funktion
+document.addEventListener("DOMContentLoaded", () => {
+  const user = localStorage.getItem("loggedInUser");
+  if (user) {
+    document.getElementById("preset-controls").style.display = "flex";
+  }
+});
+
+// Aktuelles Outfit speichern
+function savePreset() {
+  const user = localStorage.getItem("loggedInUser");
+  if (!user) {
+    alert("Du musst eingeloggt sein, um ein Preset zu speichern!");
+    return;
+  }
+
+  const preset = {
+    shirt: {
+      src: document.getElementById("select-shirt").value,
+      class: document.getElementById("shirt").className
+    },
+    pants: {
+      src: document.getElementById("select-pants").value,
+      class: document.getElementById("pants").className
+    },
+    shoes: {
+      src: document.getElementById("select-shoes").value,
+      class: document.getElementById("shoes").className
+    },
+    accessory: {
+      src: document.getElementById("select-accessory").value,
+      class: document.getElementById("accessory").className
+    }
+  };
+
+  localStorage.setItem(`${user}-preset`, JSON.stringify(preset));
+  alert("Preset gespeichert!");
+}
+
+
+// Outfit aus Preset laden
+function loadPreset() {
+  const user = localStorage.getItem("loggedInUser");
+  if (!user) {
+    alert("Du musst eingeloggt sein, um ein Preset zu laden!");
+    return;
+  }
+
+  const preset = JSON.parse(localStorage.getItem(`${user}-preset`));
+  if (!preset) {
+    alert("Du hast noch kein Preset gespeichert.");
+    return;
+  }
+
+  // Werte in Selects setzen
+  document.getElementById("select-shirt").value = preset.shirt.src;
+  document.getElementById("select-pants").value = preset.pants.src;
+  document.getElementById("select-shoes").value = preset.shoes.src;
+  document.getElementById("select-accessory").value = preset.accessory.src;
+
+  // Bilder setzen & Klassen wiederherstellen
+  applyClothing("shirt", preset.shirt.src, preset.shirt.class);
+  applyClothing("pants", preset.pants.src, preset.pants.class);
+  applyClothing("shoes", preset.shoes.src, preset.shoes.class);
+  applyClothing("accessory", preset.accessory.src, preset.accessory.class);
+}
+
+
 
 
  
