@@ -6,6 +6,7 @@
     <title>Mode-Generator</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    
 </head>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -16,10 +17,11 @@
       userInfo.style.marginLeft = "1rem";
       userInfo.style.color = "#f4a300";
       userInfo.textContent = `👤 Eingeloggt als: ${loggedInUser}`;
+      document.getElementById("reg").style.display = "none";
+      document.getElementById("wrapper").style.gridTemplateColumns =" auto auto auto"
 
       const logoutBtn = document.createElement("a");
       logoutBtn.href = "#";
-      logoutBtn.className = "auth-button";
       logoutBtn.textContent = "Logout";
       logoutBtn.onclick = () => {
         localStorage.removeItem("loggedInUser");
@@ -30,14 +32,32 @@
       nav.appendChild(logoutBtn);
     }
   });
+
+  var granimInstance = new Granim({
+    element: '#logo-canvas',
+    direction: 'left-right',
+    states : {
+        "default-state": {
+            gradients: [
+                ['#EB3349', '#F45C43'],
+                ['#FF8008', '#FFC837'],
+                ['#4CB8C4', '#3CD3AD'],
+                ['#24C6DC', '#514A9D'],
+                ['#FF512F', '#DD2476'],
+                ['#DA22FF', '#9733EE']
+            ],
+            transitionSpeed: 2000
+        }
+    }
+});
 </script>
 <body>
   <div class="header">
-    <img src="./img/bear.png" id="logo" alt="ye">
+    <img src="./img/bear.png" id="logo" alt="ye"> 
     <h2 style="font-size: 2rem;">Drip - Generator</h2>
     <nav class="nav-links">
       <a href="#info-section" >Info</a>
-      <a href="./unterseiten/login.html" >Registrieren/Login</a>
+      <a id="reg" href="./unterseiten/login.html" >Registrieren/Login</a>
     </nav>
   </div>
 
@@ -136,4 +156,5 @@
 <div></div>
 
 </body>
+<script src="granim.min.js" ></script>
 </html>
