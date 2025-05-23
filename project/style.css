@@ -109,6 +109,14 @@ body {
   margin-right: auto;
 }
 
+#wrapper2 {
+  display: grid;
+  margin-bottom: 10%;
+  overflow: visible;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%; grid-template-columns: auto auto auto;
+}
 .base-figure {
   width: 100%;
   background-color: transparent;
@@ -603,4 +611,143 @@ label {
   display: grid;
   grid-template-columns: auto auto;
   margin-top: 5%;
+}
+/*Responsive:*/
+/* ------------------- Responsive Design ------------------- */
+
+@media (max-width: 1200px) {
+  *{
+    overflow: visible;
+  }
+
+  #info {
+    width: 90%;
+  }
+
+  #info-section {
+    height: auto;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #info {
+    flex-direction: column;
+    height: auto;
+    width: 95%;
+  }
+
+  #infoBox {
+    margin-top: 30%;
+    width: 90%;
+  }
+
+  .points-display {
+    width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav-links {
+    align-items: flex-start;
+  }
+
+  .config,
+  #boxy {
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  #wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  #wrapper2 {
+     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stickman-wrapper {
+    width: 100%;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  #info,
+  #info-section,
+  #infoBox {
+    width: 95%;
+  }
+
+  #back-button,
+  #start-button {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .submit-button,
+  #playAgain-button {
+    width: 80%;
+  }
+
+  .points-display {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    top: 20%;
+  }
+
+  #handling {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .config label {
+    font-size: 0.8rem;
+  }
+
+  .config select {
+    max-width: 80%;
+    width: 80%;
+  }
+  #select-accessory{
+    max-width: 78%;
+  }
+
+  #info h2,
+  #info-section h2 {
+    font-size: 1.2rem;
+  }
+
+  #info #text,
+  #info-section p {
+    font-size: 0.9rem;
+  }
+
+  #points {
+    font-size: 1.5rem;
+  }
 }
