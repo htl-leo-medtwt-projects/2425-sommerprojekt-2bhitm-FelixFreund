@@ -222,6 +222,7 @@ function disappear(){
   document.getElementById("overlay").style.display = "none";
   document.querySelector(".points-display").style.display = "none";
   document.getElementById("main-content").classList.remove("blur");
+  window.location.href = "index.html";
 }
 
 function playAgain(){
@@ -303,16 +304,8 @@ function savePreset() {
 // Outfit aus Preset laden
 function loadPreset() {
   const user = localStorage.getItem("loggedInUser");
-  if (!user) {
-    alert("Du musst eingeloggt sein, um ein Preset zu laden!");
-    return;
-  }
-
   const preset = JSON.parse(localStorage.getItem(`${user}-preset`));
-  if (!preset) {
-    alert("Du hast noch kein Preset gespeichert.");
-    return;
-  }
+ 
 
   // Werte in Selects setzen
   document.getElementById("select-shirt").value = preset.shirt.src;
@@ -326,6 +319,20 @@ function loadPreset() {
   applyClothing("shoes", preset.shoes.src, preset.shoes.class);
   applyClothing("accessory", preset.accessory.src, preset.accessory.class);
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+  const presetButton = document.getElementById("pre");
+  const user = localStorage.getItem("loggedInUser");
+
+  if (!user && presetButton) {
+    presetButton.style.display = "none"; 
+  }
+
+  const preset = JSON.parse(localStorage.getItem(`${user}-preset`));
+  if (!preset) {
+     presetButton.style.display = "none"; 
+  }
+});
 
 
 

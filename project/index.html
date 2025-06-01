@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mode-Generator</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    
     
 </head>
 <script>
@@ -33,24 +33,9 @@
     }
   });
 
-  var granimInstance = new Granim({
-    element: '#logo-canvas',
-    direction: 'left-right',
-    states : {
-        "default-state": {
-            gradients: [
-                ['#EB3349', '#F45C43'],
-                ['#FF8008', '#FFC837'],
-                ['#4CB8C4', '#3CD3AD'],
-                ['#24C6DC', '#514A9D'],
-                ['#FF512F', '#DD2476'],
-                ['#DA22FF', '#9733EE']
-            ],
-            transitionSpeed: 2000
-        }
-    }
-});
+ 
 </script>
+<script src="./script.js" defer></script> 
 <body>
   <div class="header">
     <img src="./img/bear.png" id="logo" alt="ye"> 
@@ -149,12 +134,12 @@
 
   <div style="display: flex; justify-content: center; padding: 1rem; box-sizing: border-box; ">
    <a id="back-button" href="#">Zurück</a>
-   <a id="start-button" href="./game.html">Start</a>
+   <a id="start-button" href="./game.html" >Start</a>
   </div>
 </div>
 
 <div></div>
 
 </body>
-<script src="granim.min.js" ></script>
+
 </html>

@@ -1,5 +1,5 @@
 // auth.js
-
+//localStorage.clear()
 // Registrierung speichern
 function registerUser(event) {
   event.preventDefault();
@@ -7,13 +7,19 @@ function registerUser(event) {
   const password = document.getElementById("reg-password").value;
 
   if (localStorage.getItem(userName)) {
-    alert("Benutzer existiert bereits.");
+    document.getElementById("text").innerHTML="Der Benutzer existiet bereits!";
+    document.getElementById("bestaetigung").style.display ="block";
     return;
   }
 
   localStorage.setItem(userName, JSON.stringify({ password }));
-  alert("Registrierung erfolgreich!");
-  window.location.href = "login.html";
+   document.getElementById("text").innerHTML="Registrierung erfolgreich!";
+   document.getElementById("bestaetigung").style.display ="block";
+  
+   setTimeout(() => {
+    window.location.href = "login.html";
+   },2000) 
+
 }
 
 // Login überprüfen
@@ -26,10 +32,22 @@ function loginUser(event) {
 
   if (user && user.password === password) {
     localStorage.setItem("loggedInUser", userName);
-    alert("Login erfolgreich!");
+    document.getElementById("text").innerHTML="login erfolgreich!";
+   document.getElementById("bestaetigung").style.display ="block";
+  
+   setTimeout(() => {
     window.location.href = "../index.html";
+   },2000) 
   } else {
-    alert("Falsche Zugangsdaten!");
+   document.getElementById("text").innerHTML="Falsche Zugangsdaten!";
+   document.getElementById("bestaetigung").style.display ="block";
+  
+   setTimeout(() => {
+   document.getElementById("bestaetigung").style.display ="none";
+   document.getElementById("login-userName").value = "";
+   document.getElementById("login-password").value = "";
+   },2000) 
+   
   }
 }
 

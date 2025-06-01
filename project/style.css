@@ -751,3 +751,19 @@ label {
     font-size: 1.5rem;
   }
 }
+#bestaetigung{
+  background-color: black;
+  color:#f4a300;
+  width: 12rem;
+   display: flex;
+  justify-content: center;
+ margin-left: auto;
+ margin-right: auto;
+  align-items: center;
+  padding: 1.5%;
+  border-radius: 10px;
+  font-family: Julin;
+  display: none;
+}
+
+
