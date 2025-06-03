@@ -273,7 +273,12 @@ document.addEventListener("DOMContentLoaded", () => {
 function savePreset() {
   const user = localStorage.getItem("loggedInUser");
   if (!user) {
-    alert("Du musst eingeloggt sein, um ein Preset zu speichern!");
+     document.getElementById("sav").innerHTML = "Zuerst einloggen!";
+      document.getElementById("sav").style.color ="#f4a300"
+     setTimeout(() => {
+     document.getElementById("sav").innerHTML = "Preset speichern";
+     document.getElementById("sav").style.color ="white"
+   },2000) 
     return;
   }
 
@@ -297,7 +302,12 @@ function savePreset() {
   };
 
   localStorage.setItem(`${user}-preset`, JSON.stringify(preset));
-  alert("Preset gespeichert!");
+  document.getElementById("sav").innerHTML = "Preset gespeichert!";
+   document.getElementById("sav").style.color ="#f4a300"
+   setTimeout(() => {
+     document.getElementById("sav").innerHTML = "Preset speichern";
+     document.getElementById("sav").style.color ="white"
+   },2000) 
 }
 
 
