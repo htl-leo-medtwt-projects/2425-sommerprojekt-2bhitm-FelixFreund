@@ -6,8 +6,38 @@
   <link rel="stylesheet" href="../style.css" />
   <script src="./auth.js" defer></script>
   <title>Login</title>
+
+  <!-- Granim.js einbinden -->
+  <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #background-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .auth-container {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Granim Canvas -->
+  <canvas id="background-gradient"></canvas>
+
   <div class="auth-container">
     <h2>Login</h2>
     <form onsubmit="loginUser(event)">
@@ -19,15 +49,35 @@
 
       <button type="submit">Einloggen</button>
     </form>
+
     <div id="handling">
-    <a href="./register.html" id="bait">Noch kein Konto?</a>
-    <a href="../index.html" class="auth-button">Zurück</a>
+      <a href="./register.html" id="bait">Noch kein Konto?</a>
+      <a href="../index.html" class="auth-button">Zurück</a>
     </div>
   </div>
 
   <div id="bestaetigung">
-  <p id="text"></p>
-
+    <p id="text"></p>
   </div>
+
+  <!-- Granim initialisieren -->
+  <script>
+    new Granim({
+      element: '#background-gradient',
+      direction: 'diagonal',
+      isPausedWhenNotInView: true,
+      states: {
+        "default-state": {
+          gradients: [
+            ['#00c6ff', '#0072ff'],
+            ['#f7971e', '#ffd200'],
+            ['#f953c6', '#b91d73']
+          ],
+          transitionSpeed: 4000
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>

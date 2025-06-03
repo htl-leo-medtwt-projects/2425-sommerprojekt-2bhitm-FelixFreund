@@ -18,8 +18,13 @@
       userInfo.style.color = "#f4a300";
       userInfo.textContent = `👤 Eingeloggt als: ${loggedInUser}`;
       document.getElementById("reg").style.display = "none";
-      document.getElementById("wrapper").style.gridTemplateColumns =" auto auto auto"
 
+
+if ( window.innerWidth < 1000 ) {
+  wrapper.style.gridTemplateColumns = "1fr";
+} else {
+  wrapper.style.gridTemplateColumns = "auto auto auto";
+}
       const logoutBtn = document.createElement("a");
       logoutBtn.href = "#";
       logoutBtn.textContent = "Logout";
@@ -46,7 +51,7 @@
     </nav>
   </div>
 
-  <h1 style="margin-bottom: 3%;"> Drip-Generator</h1>
+  
 
   <div id="infoBox"><h2>Willkommen im Sandboxmode</h2>
   <p>Hier kannst du dich schon mal für das Spiel vorbereiten und falls du willst einen Preset erstellen.<strong> Was ist ein Preset??</strong> <br>
