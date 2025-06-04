@@ -21,7 +21,33 @@ function loadRandomTheme() {
   document.getElementById("main-content").style.backgroundSize = "cover";
   document.getElementById("main-content").style.backgroundPosition = "center";
   document.getElementById("main-content").style.backgroundRepeat = "no-repeat";
+
+  console.log("why no music?")
+   const music = document.getElementById("background-music");
+  const source = document.getElementById("music-source");
+
+  if (selectedTheme.music) {
+    source.src = selectedTheme.music;
+    music.load(); // neu laden
+    music.play().catch(err => console.warn("Musik konnte nicht abgespielt werden:", err));
+  }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("music-toggle");
+  const music = document.getElementById("background-music");
+  // Button zum Pausieren/Abspielen
+  toggleBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      toggleBtn.textContent = "🔊 Musik pausieren";
+    } else {
+      music.pause();
+      toggleBtn.textContent = "🔈 Musik abspielen";
+    }
+  });
+});
+
 
 // Outfit-Update Funktion
 function updateClothing() {
@@ -51,8 +77,10 @@ function applyClothing(part, src, className) {
 function updateBaseFigure() {
   const baseImage = document.querySelector(".base-figure");
 
-  if (currentDrip.shirt && currentDrip.shirt.toLowerCase().includes("hemd")) {
+  if (currentDrip.shirt && currentDrip.shirt.toLowerCase().includes("hemd")  ) {
     baseImage.src = "./img/stickman-straight.png";
+  } else if(currentDrip.shirt.toLowerCase().includes("jacke")) {
+    baseImage.src = "./img/stickman-beast.png";
   } else {
     baseImage.src = "./img/stickman-removebg-preview.png";
   }
@@ -78,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     shirtEl.src = value;
 
    
-    shirtEl.classList.remove("tshirt-style", "hemd-style","hawaihemd-style");
+    shirtEl.classList.remove("tshirt-style", "hemd-style","hawaihemd-style","jacke-style");
 
 
   
@@ -88,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
       shirtEl.classList.add("tshirt-style");
     } else if (value.toLowerCase().includes("hawai")) {
       shirtEl.classList.add("hawaihemd-style");
+    }else if (value.toLowerCase().includes("jacke")) {
+      shirtEl.classList.add("jacke-style");
     }
 
    
@@ -104,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pantsEl.src = value;
 
   
-    pantsEl.classList.remove("jeans-style", "trousers-style", "shorts-style");
+    pantsEl.classList.remove("jeans-style", "trousers-style", "shorts-style","badehose-style");
 
     
 
@@ -114,6 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
       pantsEl.classList.add("jeans-style");
     } else if(value.toLowerCase().includes("shorts")){
       pantsEl.classList.add("shorts-style");
+    } else if(value.toLowerCase().includes("badehose")){
+      pantsEl.classList.add("badehose-style");
     }
 
     updateBaseFigure();
@@ -129,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
   shoesEl.src = value;
 
 
-  shoesEl.classList.remove("loafer-style", "sneaker-style","flip-flops-style");
+  shoesEl.classList.remove("loafer-style", "sneaker-style","flip-flops-style","timbs-style");
 
   
 
@@ -139,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
     shoesEl.classList.add("loafer-style");
   } else if(value.toLowerCase().includes("flip-flops")){
     shoesEl.classList.add("flip-flops-style");
+  } else if(value.toLowerCase().includes("timbs")){
+    shoesEl.classList.add("timbs-style");
   }
 
   updateBaseFigure();
@@ -155,7 +189,7 @@ selects.accessory.addEventListener("change", (e) => {
   accessoryEl.src = value;
 
 
-  accessoryEl.classList.remove("krawatte-style", "fischerhut-style","cap-style");
+  accessoryEl.classList.remove("krawatte-style", "fischerhut-style","cap-style","mütze-style");
 
   
 
@@ -165,6 +199,8 @@ selects.accessory.addEventListener("change", (e) => {
     accessoryEl.classList.add("krawatte-style");
   }else if (value.toLowerCase().includes("cap")) {
     accessoryEl.classList.add("cap-style");
+  } else if (value.toLowerCase().includes("mütze")) {
+    accessoryEl.classList.add("mütze-style");
   }
 
   updateBaseFigure();
@@ -185,10 +221,10 @@ selects.accessory.addEventListener("change", (e) => {
 
 // Themen für Bewertung
 const themes = [
-  { name: "Strandoutfit", tags: ["hawai", "shorts", "flip-flop", "cap"],background: "./img/strand.jpg" },
-  { name: "Winter-Style", tags: ["jacke", "jeans", "boots", "mütze"],background: "./img/schneeLandschaft.jpg"},
-  { name: "Gala-Look", tags: ["hemd", "trousers", "loafer", "krawatte"],background: "./img/disco.jpg"},
-  { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "fischerhut", "sneaker"],background: "./img/festival.jpg" }
+  { name: "Strandoutfit", tags: ["hawai", "badehose", "flip-flop", "cap"],background: "./img/strand.jpg",music: "./music/i thought you wanted to dance_mixdown.mp3"},
+  { name: "Winter-Style", tags: ["jacke", "jeans", "timbs", "mütze"],background: "./img/schneeLandschaft.jpg",music: "./music/10 No Surprises.mp3"},
+  { name: "Gala-Look", tags: ["hemd", "trousers", "loafer", "krawatte"],background: "./img/disco.jpg",music: "./music/01 Die Hochzeit des Figaro, K. 492, 3. Akt_ Canzonetta sull aria… Che soave zeffiretto (Die Verurteilten)_ Sinfonia.mp3"},
+  { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "fischerhut", "sneaker"],background: "./img/festival.jpg",music: "./music/04 Trip To Mars (Astronauts).mp3"}
 ];
 
 let selectedTheme = null;
@@ -273,7 +309,7 @@ function playAgain(){
 document.addEventListener("DOMContentLoaded", () => {
   const user = localStorage.getItem("loggedInUser");
   if (user) {
-    document.getElementById("preset-controls").style.display = "flex";
+   // document.getElementById("preset-controls").style.display = "flex";
   }
 });
 

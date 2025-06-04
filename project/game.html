@@ -16,13 +16,14 @@
   <div id="main-content">
     <div class="header">
         <a class="return" href="./index.html">Zurück</a>
+        <div id="music-toggle" style="margin-left: 2%;" >🔊 Musik pausieren</div>
         <h2>Deine Aufgabe -></h2>
         <p id="theme" style="color: #f4a300;"></p>
       </div>
     
       <div id="wrapper2">
  
-  
+ 
 
         <div class="config">
           <h2 style="margin-top: 4%; margin-bottom: -4%;">Choose your Drip</h2>
@@ -33,6 +34,7 @@
         <option value="./img/t-shirt.webp">T-Shirt</option>
         <option value="./img/hemd.png">Hemd</option>
         <option value="./img/hawai.png">Hawaihemd</option>
+        <option value="./img/jacke.png">Jacke</option>
       </select>
     </label>
       
@@ -42,6 +44,7 @@
               <option value="./img/jeans.png">Jeans</option>
               <option value="./img/anzugsHose.png">Trousers</option>
                <option value="./img/shorts.png">Shorts</option>
+               <option value="./img/badehose.png">Badehose</option>
             </select>
           </label>
       
@@ -51,6 +54,7 @@
               <option value="./img/sneaker++.png">Sneaker</option>
               <option value="./img/loafer.png">Loafer</option>
               <option value="./img/flip-flops.png">Flip-Flops</option>
+              <option value="./img/timbs.png">Stiefel</option>
             </select>
           </label>
       
@@ -60,6 +64,7 @@
               <option value="./img/fischerhut.png">Fischerhut</option>
               <option value="./img/Krawatte.png">Krawatte</option>
               <option value="./img/cap.png">Cap</option>
+               <option value="./img/mütze.png">Mütze</option>
             </select>
           </label>
         </div>
@@ -90,6 +95,12 @@
      </div>
 
     </div>
+
+<audio id="background-music" autoplay loop>
+<source id="music-source" src="" type="audio/mpeg" />
+Dein Browser unterstützt kein HTML5-Audio.
+</audio>
+
     </div>
     
 </body>
