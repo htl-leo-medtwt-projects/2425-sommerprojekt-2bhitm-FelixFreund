@@ -15,6 +15,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   overflow: hidden;
+
   
 }
 
@@ -94,19 +95,22 @@ body {
 
 .stickman-wrapper {
   position: relative;
-  width: 15rem;
+  width: 14rem;
   z-index: 1;
   overflow: visible;
  
  
 }
 #wrapper {
+  margin-top: 1%;
   display: grid;
   grid-template-columns: auto auto;
   margin-bottom: 10%;
   overflow: visible;
   margin-left: auto;
   margin-right: auto;
+  padding: 2%;
+  overflow: hidden;
 }
 
 #wrapper2 {
@@ -204,6 +208,12 @@ label {
   margin-left: 13%;
   z-index: 2;
 }
+.hawaihemd-style{
+  width: 75%;
+  top: 22%;
+  left: 15%;
+  z-index: 5;
+}
 .jeans-style{
   width: 57%;
   margin-top: 120%;
@@ -216,6 +226,11 @@ label {
   margin-left: 11%;
   z-index: 1;
 }
+.shorts-style{
+  width: 65%;
+  top: 53%;
+  left: 21%;
+}
 
 .sneaker-style{
   width: 86%;
@@ -227,7 +242,11 @@ label {
   width: 86%;
   margin-top: 134%;
   margin-left: 12%;
- 
+}
+.flip-flops-style{
+  width: 100%;
+  top: 67%;
+  left: 4%;
 }
 .fischerhut-style{
   width: 80%;
@@ -239,7 +258,11 @@ label {
   margin-top: 54.5%;
   margin-left: 15.5%;
   z-index: 10;
-
+}
+.cap-style{
+  width: 65%;
+  top: -7.5%;
+  left: 18%;
 }
 
 

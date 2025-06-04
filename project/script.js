@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     shirtEl.src = value;
 
    
-    shirtEl.classList.remove("tshirt-style", "hemd-style");
+    shirtEl.classList.remove("tshirt-style", "hemd-style","hawaihemd-style");
 
 
   
@@ -86,6 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
       shirtEl.classList.add("hemd-style");
     } else if (value.toLowerCase().includes("t-shirt")) {
       shirtEl.classList.add("tshirt-style");
+    } else if (value.toLowerCase().includes("hawai")) {
+      shirtEl.classList.add("hawaihemd-style");
     }
 
    
@@ -102,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pantsEl.src = value;
 
   
-    pantsEl.classList.remove("jeans-style", "trousers-style");
+    pantsEl.classList.remove("jeans-style", "trousers-style", "shorts-style");
 
     
 
@@ -110,6 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
       pantsEl.classList.add("trousers-style");
     } else if (value.toLowerCase().includes("jeans")) {
       pantsEl.classList.add("jeans-style");
+    } else if(value.toLowerCase().includes("shorts")){
+      pantsEl.classList.add("shorts-style");
     }
 
     updateBaseFigure();
@@ -125,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   shoesEl.src = value;
 
 
-  shoesEl.classList.remove("loafer-style", "sneaker-style");
+  shoesEl.classList.remove("loafer-style", "sneaker-style","flip-flops-style");
 
   
 
@@ -133,6 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
     shoesEl.classList.add("sneaker-style");
   } else if (value.toLowerCase().includes("loafer")) {
     shoesEl.classList.add("loafer-style");
+  } else if(value.toLowerCase().includes("flip-flops")){
+    shoesEl.classList.add("flip-flops-style");
   }
 
   updateBaseFigure();
@@ -149,7 +155,7 @@ selects.accessory.addEventListener("change", (e) => {
   accessoryEl.src = value;
 
 
-  accessoryEl.classList.remove("krawatte-style", "fischerhut-style");
+  accessoryEl.classList.remove("krawatte-style", "fischerhut-style","cap-style");
 
   
 
@@ -157,6 +163,8 @@ selects.accessory.addEventListener("change", (e) => {
     accessoryEl.classList.add("fischerhut-style");
   } else if (value.toLowerCase().includes("krawatte")) {
     accessoryEl.classList.add("krawatte-style");
+  }else if (value.toLowerCase().includes("cap")) {
+    accessoryEl.classList.add("cap-style");
   }
 
   updateBaseFigure();
@@ -177,7 +185,7 @@ selects.accessory.addEventListener("change", (e) => {
 
 // Themen für Bewertung
 const themes = [
-  { name: "Strandoutfit", tags: ["t-shirt", "shorts", "flip-flop", "cap"],background: "./img/strand.jpg" },
+  { name: "Strandoutfit", tags: ["hawai", "shorts", "flip-flop", "cap"],background: "./img/strand.jpg" },
   { name: "Winter-Style", tags: ["jacke", "jeans", "boots", "mütze"],background: "./img/schneeLandschaft.jpg"},
   { name: "Gala-Look", tags: ["hemd", "trousers", "loafer", "krawatte"],background: "./img/disco.jpg"},
   { name: "Festival-Vibes", tags: ["t-shirt", "shorts", "fischerhut", "sneaker"],background: "./img/festival.jpg" }
