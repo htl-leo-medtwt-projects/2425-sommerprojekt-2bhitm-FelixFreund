@@ -1,5 +1,4 @@
 
-localStorage.clear()
 
 function registerUser(event) {
   event.preventDefault();
