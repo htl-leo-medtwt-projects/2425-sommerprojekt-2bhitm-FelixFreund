@@ -1,10 +1,10 @@
-// auth.js
-//localStorage.clear()
-// Registrierung speichern
+
+localStorage.clear()
+
 function registerUser(event) {
   event.preventDefault();
-  const userName = document.getElementById("reg-User").value;
-  const password = document.getElementById("reg-password").value;
+  let userName = document.getElementById("reg-User").value;
+  let password = document.getElementById("reg-password").value;
 
   if (localStorage.getItem(userName)) {
     document.getElementById("text").innerHTML="Der Benutzer existiet bereits!";
@@ -25,10 +25,10 @@ function registerUser(event) {
 // Login überprüfen
 function loginUser(event) {
   event.preventDefault();
-  const userName = document.getElementById("login-userName").value;
-  const password = document.getElementById("login-password").value;
+  let userName = document.getElementById("login-userName").value;
+  let password = document.getElementById("login-password").value;
 
-  const user = JSON.parse(localStorage.getItem(userName));
+ let user = JSON.parse(localStorage.getItem(userName));
 
   if (user && user.password === password) {
     localStorage.setItem("loggedInUser", userName);
@@ -51,7 +51,7 @@ function loginUser(event) {
   }
 }
 
-// Logout (optional, z. B. in der index.html)
+
 function logoutUser() {
   localStorage.removeItem("loggedInUser");
   window.location.reload();

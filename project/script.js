@@ -255,12 +255,48 @@ console.log("Aktuelles Outfit:", currentDrip);
 
 // Bewertung anzeigen
 function showDripScore() {
-  const score = calculateDripPoints(); // <- deine Bewertungsfunktion
+  const score = calculateDripPoints();
+  const feedbackEl = document.getElementById("feedback");
+  const tags = selectedTheme?.tags || [];
+
+  const feedbackParts = [];
+
+  // Check für jedes Kleidungsstück ob ein Theme-Tag fehlt
+  if (!currentDrip.shirt || !tags.some(tag => currentDrip.shirt.toLowerCase().includes(tag))) {
+    feedbackParts.push(" Dein Shirt passt nicht ganz zum Thema.");
+  }
+
+  if (!currentDrip.pants || !tags.some(tag => currentDrip.pants.toLowerCase().includes(tag))) {
+    feedbackParts.push(" Deine Hose hätte besser gewählt werden können.");
+  }
+
+  if (!currentDrip.shoes || !tags.some(tag => currentDrip.shoes.toLowerCase().includes(tag))) {
+    feedbackParts.push(" Die Schuhe harmonieren nicht mit dem Style.");
+  }
+
+  if (!currentDrip.accessory || !tags.some(tag => currentDrip.accessory.toLowerCase().includes(tag))) {
+    feedbackParts.push(" Ein passendes Accessoire hätte das Outfit abgerundet.");
+  }
+
+  // Generelles Feedback je nach Punktzahl
+  let summary = "";
+  if (score === 40) {
+    summary = "🔥 Perfekt abgestimmt – du hast das Thema komplett getroffen!";
+  } else if (score >= 20) {
+    summary = "👍 Gutes Outfit! Aber da geht noch mehr…";
+  } else {
+    summary = "😬 Das Outfit hat leider nicht zum Thema gepasst.";
+  }
+  
+
+  // Ergebnis anzeigen
   document.getElementById("points").textContent = `${score} Punkte`;
+  feedbackEl.innerHTML = `<p>${summary}</p><hr> <br><ul id="liste">${feedbackParts.map(p => `<li>${p}</li>`).join("")}</ul>`;
   document.querySelector(".points-display").style.display = "block";
   document.getElementById("overlay").style.display = "block";
   document.getElementById("main-content").classList.add("blur");
 }
+
 
 function disappear(){
   document.getElementById("overlay").style.display = "none";
@@ -309,13 +345,13 @@ function playAgain(){
 document.addEventListener("DOMContentLoaded", () => {
   const user = localStorage.getItem("loggedInUser");
   if (user) {
-   // document.getElementById("preset-controls").style.display = "flex";
+    document.getElementById("preset-controls").style.display = "flex";
   }
 });
 
 // Aktuelles Outfit speichern
 function savePreset() {
-  const user = localStorage.getItem("loggedInUser");
+  let user = localStorage.getItem("loggedInUser");
   if (!user) {
      document.getElementById("sav").innerHTML = "Zuerst einloggen!";
       document.getElementById("sav").style.color ="#f4a300"
@@ -326,7 +362,7 @@ function savePreset() {
     return;
   }
 
-  const preset = {
+  let preset = {
     shirt: {
       src: document.getElementById("select-shirt").value,
       class: document.getElementById("shirt").className
@@ -357,8 +393,8 @@ function savePreset() {
 
 // Outfit aus Preset laden
 function loadPreset() {
-  const user = localStorage.getItem("loggedInUser");
-  const preset = JSON.parse(localStorage.getItem(`${user}-preset`));
+  let user = localStorage.getItem("loggedInUser");
+  let preset = JSON.parse(localStorage.getItem(`${user}-preset`));
  
 
   // Werte in Selects setzen

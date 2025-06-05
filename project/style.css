@@ -482,11 +482,11 @@ label {
 
 .points-display {
   z-index: 1000;
-  display: none; /* Erst sichtbar, wenn JS das ändert */
-  margin: 2rem auto;
+  display: none; 
+  margin: 1.5rem auto;
   padding: 1rem 2rem;
   width: 20rem;
-  height: 30%;
+  height: 50%;
   background: linear-gradient(135deg, #ffffff, #f0f0f0);
   border: 2px solid #111;
   border-radius: 10px;
@@ -568,7 +568,6 @@ label {
   font-family: Arial, sans-serif;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10%;
 }
 #playAgain-button:hover{
   color: #111;
@@ -735,6 +734,10 @@ label {
   #playAgain-button {
     width: 80%;
   }
+   .points-display {
+  height: 15%;
+ 
+}
 
 }
 
@@ -780,7 +783,7 @@ label {
   #back-button,
   #start-button {
     width: 80%;
-    margin: 1rem auto;
+    
   }
 
   .submit-button,
@@ -807,6 +810,10 @@ label {
   #boxy{
    justify-content: center;
   }
+   .points-display {
+  height: 15%;
+ 
+}
   @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -814,8 +821,7 @@ label {
     justify-content: center;
     text-align: center;
     padding: 15px 10px;
-    position: static; /* verhindert Überlappung auf kleinen Bildschirmen */
-  }
+    position: static; }
 
   .header h2 {
     font-size: 18px;
@@ -838,6 +844,10 @@ label {
     margin-right: 0;
     margin-bottom: 10px;
   }
+  .points-display {
+  height: 20%;
+ 
+}
 }
   
 }
@@ -876,6 +886,10 @@ label {
   #points {
     font-size: 1.5rem;
   }
+  .points-display {
+  height: 20%;
+ 
+}
 }
 #bestaetigung{
   background-color: black;
@@ -897,4 +911,17 @@ label {
 }
 #music-toggle:hover{
   color: #f4a300;
+}
+#liste{
+  font-size: 80%;
+  font-family: Arial, sans-serif;
+  display: block;
+  list-style-position: inside;   
+  padding: 0;                   
+  margin: 1em 0;
+}
+
+#liste li{
+  margin-bottom: 0.5%;
+  padding: 0.3em 0;
 }
